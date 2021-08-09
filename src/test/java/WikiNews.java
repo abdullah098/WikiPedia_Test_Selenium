@@ -1,16 +1,13 @@
-import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 import java.util.concurrent.TimeUnit;
 
 public class WikiNews {
 
     OpenBrowswe browser = new OpenBrowswe();
-    TimeOut timeOut = new TimeOut();
 
     @Test
     public void WikiNews(){
@@ -37,6 +34,13 @@ public class WikiNews {
         //click wikinews
         browser.driver.findElement(new By.ByXPath("//*[@id=\"www-wikipedia-org\"]/div[7]/div[3]/div[5]/a")).click();
 
+
+        try{
+            TimeUnit.SECONDS.sleep(3);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        browser.driver.close();
     }
 
 }
